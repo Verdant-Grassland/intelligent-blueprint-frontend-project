@@ -1,32 +1,38 @@
 <template>
   <div class="login">
-    <el-form ref="ruleFormRef" label-position="left" :model="userForm" :rules="rules" class="login-form" :size="formSize">
-      <h3 class="title">登录</h3>
-      <el-form-item prop="username">
+    <el-form hide-required-asterisk ref="ruleFormRef" label-position="top" :model="userForm" :rules="rules" class="login-form" :size="formSize">
+      <h1 class="title">登录</h1>
+      <el-form-item prop="username" label="手机号">
         <el-input v-model="userForm.username" :prefix-icon="Avatar" size="large" auto-complete="off" placeholder="用户名/邮箱/手机号" :style="{ fontSize: '16px' }" />
       </el-form-item>
-      <el-form-item prop="password">
+      <el-form-item prop="password" label="密码">
         <el-input v-model="userForm.password" type="password" :prefix-icon="Lock" size="large" auto-complete="off" placeholder="密码" :style="{ fontSize: '16px' }" />
       </el-form-item>
-      <el-form-item style="width:100%;">
+      <!-- <el-form-item style="width:100%;">
         <el-button size="large" type="primary" style="width:100%;" @click="submitForm()">
         登 录
         </el-button>
-      </el-form-item>
+      </el-form-item> -->
+      <div class="forgetPassword">
+        <span>找回密码</span>
+      </div>
+      <div class="submit">
+        <el-button size="large" class="btn_login">登录</el-button>
+      </div>
     </el-form>
   </div>
 </template>
 
 <script lang="ts" setup>
   import { reactive, ref } from 'vue'
-  import type { FormInstance, FormRules } from 'element-plus'
+  import type { FormRules } from 'element-plus'
   import {loginApi} from '@/api/login'
   import { ElMessage } from 'element-plus'
   import { Avatar, Lock } from '@element-plus/icons-vue'
   import router from '@/router'
 
   const formSize = ref('default')
-  const ruleFormRef = ref<FormInstance>()
+  const ruleFormRef = ref()
   const userForm = reactive({
     username:'',
     password:''
@@ -60,32 +66,52 @@
   var user = reactive({})
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .login {
   box-sizing: border-box;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /*background-image: url("@/assets/img/background-image.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;*/
+  position: relative;
+  background: url('../../assets/image/login_bg.jpg') no-repeat 50%;
+  background-size: contain;
 }
 .title {
-  margin: 0px auto 30px auto;
+  margin: 0px auto 50px;
   text-align: center;
-  color: #707070;
+  color: #000000;
 }
 
 .login-form {
+  position: absolute;
   border-radius: 6px;
-  background: #ffffff;
-  width: 400px;
+  background: rgba(146, 78, 71, 0.6);
+  width: 300px;
+  height: 450px;
   padding: 25px 25px 5px 25px;
+  top: 8%;
+  left: 37%;
+  .forgetPassword{
+    float: right;
+    color: rgba($color: #fdfbfb, $alpha: 0.7);
+  }
+  .submit{
+    margin-top: 80px;
+    text-align: center;
+    .btn_login{
+    background-color: #7b1e17;
+    border-color: #7b1e17;
+    color: white;
+    width: 60%;
+    height: 70px;
+    font-size: 20px;
+    border-radius: 50px;
+  }
+  }
 }
-.login-form .el-input,.login-form .el-input input {
-  height: 40px;
+:deep(.el-form-item__label){
+  color: white;
+}
+:deep(.el-input__wrapper){
+  border-radius: 50px;
 }
 </style>
