@@ -1,6 +1,8 @@
 <template>
   <div class="login">
-    <el-form hide-required-asterisk ref="ruleFormRef" label-position="top" :model="userForm" :rules="rules" class="login-form" :size="formSize">
+    <div class="top"></div>
+    <div class="mask">
+      <el-form hide-required-asterisk ref="ruleFormRef" label-position="top" :model="userForm" :rules="rules" class="login-form" :size="formSize">
       <h1 class="title">登录</h1>
       <el-form-item prop="username" label="手机号">
         <el-input v-model="userForm.username" :prefix-icon="Avatar" size="large" auto-complete="off" placeholder="用户名/邮箱/手机号" :style="{ fontSize: '16px' }" />
@@ -8,11 +10,6 @@
       <el-form-item prop="password" label="密码">
         <el-input v-model="userForm.password" type="password" :prefix-icon="Lock" size="large" auto-complete="off" placeholder="密码" :style="{ fontSize: '16px' }" />
       </el-form-item>
-      <!-- <el-form-item style="width:100%;">
-        <el-button size="large" type="primary" style="width:100%;" @click="submitForm()">
-        登 录
-        </el-button>
-      </el-form-item> -->
       <div class="forgetPassword">
         <span>找回密码</span>
       </div>
@@ -20,6 +17,7 @@
         <el-button size="large" class="btn_login">登录</el-button>
       </div>
     </el-form>
+    </div>
   </div>
 </template>
 
@@ -72,8 +70,20 @@
   width: 100vw;
   height: 100vh;
   position: relative;
-  background: url('../../assets/image/login_bg.jpg') no-repeat 50%;
+  background: url('../../assets/image/login_bg.jpg') 50%;
   background-size: contain;
+  .top{
+    position: fixed;
+    top: 0;
+    height: 30px;
+    width: 100%;
+    background: #7b1e17;
+  }
+  .mask{
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #fdfdfd, $alpha: 0.5);
+  }
 }
 .title {
   margin: 0px auto 50px;
