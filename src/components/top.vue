@@ -89,6 +89,7 @@ const searchValue = ref('')
     }
     .person{
         cursor: pointer;
+        text-wrap: nowrap;
     }
   }
 }
