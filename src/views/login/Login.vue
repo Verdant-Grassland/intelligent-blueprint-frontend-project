@@ -14,7 +14,7 @@
         <span>找回密码</span>
       </div>
       <div class="submit">
-        <el-button size="large" class="btn_login">登录</el-button>
+        <el-button size="large" class="btn_login" @click="submitForm">登录</el-button>
       </div>
     </el-form>
     </div>
@@ -32,8 +32,8 @@
   const formSize = ref('default')
   const ruleFormRef = ref()
   const userForm = reactive({
-    username:'',
-    password:''
+    username:'dastw',
+    password:'123456'
   })
   // 数据效验
   const rules = reactive<FormRules>({
