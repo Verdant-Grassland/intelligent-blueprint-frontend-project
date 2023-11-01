@@ -1,0 +1,34 @@
+<template>
+  <div style="position: relative;">
+    <div class="bg-color"></div>
+    <div style="position: absolute;"></div>
+  </div>
+  
+</template>
+
+<script setup lang="ts">
+ 
+  import { onMounted, ref } from 'vue'
+  import axios from '@/util/http'
+
+  const bannerList = ref<{bannerImage: string}[]>([])
+  function getAllBanner() {
+    axios.get("/banner/getAllBanners").then((res) => {
+      bannerList.value = res.data.banners;
+      console.log(res);
+    })
+  }
+
+  onMounted(() => {
+    getAllBanner();
+  })
+</script>
+
+<style lang="scss" scoped>
+  .el-carousel {
+    text-align: center;
+  }
+  .bg-color {
+    background-color: green;
+  }
+</style>

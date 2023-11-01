@@ -1,0 +1,43 @@
+<template>
+  <Carousel />
+  <div class="home">
+    <el-row :gutter="20">
+      <el-col :offset="6" :span="12">
+        <div class="notice">
+          <p>天伦</p>
+        </div>
+        <div></div>
+      </el-col>
+    </el-row>
+  </div>
+</template>
+
+<script setup lang="ts">
+  import Carousel from "@/components/Carousel.vue"
+</script>
+
+<style lang="scss" scoped>
+  .home {
+    height: 230%;
+    background  : url("@/assets/image/back.jpg");
+    background-size : 100% 100%; //双auto可以保证纹理图不会被拉伸和缩放
+    background-repeat: no-repeat;
+    .el-row {
+      top: 34px;
+      margin: 0px !important;
+      .el-col {
+        margin: 0px 340px;
+      }
+    }
+    .notice {
+      width: 112%;
+      height: 276px;
+      background-color: chartreuse;
+      p {
+        margin: 0px;
+        padding: 1rem;
+        font-size: 32px;
+      }
+    }
+  }
+</style>
