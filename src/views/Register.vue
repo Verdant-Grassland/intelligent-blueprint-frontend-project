@@ -8,6 +8,7 @@
     </el-link>
   </div>
   <div class="register">
+    <div class="imgsone"></div>
     <div class="mask">
       <el-form hide-required-asterisk ref="ruleFormRef" label-position="top" :model="userForm" :rules="rules" class="register-form" :size="formSize">
         <el-form-item prop="userName" label="用户名">
@@ -201,12 +202,22 @@
     font-weight: 600;
   }
   .register {
+    margin: auto !important;
     box-sizing: border-box;
     width: 100vw;
     height: 100vh;
     position: relative;
-    background: url('@/assets/image/backprint.jpg') no-repeat;
-    background-size: auto auto;
+    // background: url('@/assets/image/backprint.jpg') no-repeat;
+    // background-size: auto auto;
+    .imgsone{
+
+
+      // width: 200vw;
+      height: 100vh;
+      background: url('@/assets/image/backprint.jpg') no-repeat;
+      background-position: center center;
+      background-size: 65% auto;
+    }
     /*.top{
       position: fixed;
       top: 0;
@@ -231,12 +242,13 @@
   .register-form {
     position: absolute;
     border-radius: 2px;
+    box-sizing:border-box;
     background-color: #7b1e17cc;
     width: 313px;
-    height: 540px;
+    height: 100%;
     padding: 25px 25px 5px 25px;
-    top: 9%;
-    left: 9%;
+    top: 0%;
+    left: 36%;
     .forgetPassword{
       color: #fdfbfbb3;
       font-size: 17px;
@@ -245,7 +257,7 @@
       justify-content: flex-end;
     }
     .submit{
-      margin-top: 96px;
+      // margin-top: 96px;
       text-align: center;
       .btn_register{
         color: white;
